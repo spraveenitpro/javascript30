@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Console Tricks!</title>
+	</head>
+	<body>
+		<p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+		<script>
+			const dogs = [{ name: "Snickers", age: 2 }, { name: "hugo", age: 8 }]
+
+			function makeGreen() {
+				const p = document.querySelector("p")
+				p.style.color = "#BADA55"
+				p.style.fontSize = "50px"
+			}
+
+			// Regular
+
+			console.log("hello")
+
+			// Interpolated
+
+			console.log("Hello I am a %s string", "😀💩💩💩💩💩")
+
+			// Styled
+
+			console.log("%c I am a great text ", "font-size:50px")
+
+			// warning!
+
+			console.warn("oh no!!")
+
+			// Error :|
+			console.error("oh error!")
+
+			// Info
+
+			console.info("oh info! this is some info")
+
+			// Testing
+			const p = document.querySelector("p")
+
+			console.assert(1 === 2, "this is wrong")
+
+			// clearing
+
+			console.clear()
+
+			// Viewing DOM Elements
+			console.log(p)
+			console.dir(p)
+
+			// Grouping together
+
+			//console.clear()
+			dogs.forEach(dog => {
+				console.group(`${dog.name}`)
+				console.log(`this is ${dog.name} `)
+				console.log(`this is  ${dog.age} old`)
+				console.log(`this is  ${dog.age * 7} dog year old`)
+				console.groupEnd(`${dog.name}`)
+			})
+
+			// counting
+
+			console.count("Praveen")
+			console.count("Praveen")
+			console.count("Praveen")
+			console.count("Praveen")
+			console.count("Praveen")
+
+			// timing
+
+			console.time("fetching data")
+			fetch("https://api.github.com/users/spraveenitpro")
+				.then(data => data.json())
+				.then(data => {
+					console.timeEnd("fetching data")
+					console.log(data)
+				})
+		</script>
+	</body>
+</html>
